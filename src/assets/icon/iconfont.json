@@ -1,0 +1,37 @@
+{
+  "id": "3530605",
+  "name": "HL_firstProject",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "日常使用，以及在我的第一个project中使用",
+  "glyphs": [
+    {
+      "icon_id": "16020767",
+      "name": "折叠1",
+      "font_class": "leftFold",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "16020747",
+      "name": "折叠2",
+      "font_class": "rigthFold",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "145730",
+      "name": "添加用户_填充",
+      "font_class": "tianjiayonghutianchong",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "2076303",
+      "name": " 日历",
+      "font_class": "rili1",
+      "unicode": "e89e",
+      "unicode_decimal": 59550
+    }
+  ]
+}
