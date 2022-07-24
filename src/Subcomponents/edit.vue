@@ -1,7 +1,7 @@
 <template>
   <el-dialog title="修改信息" :visible.sync='dialogFormVisible'>
-  <el-form >
-    <el-form-item
+    <el-form>
+      <el-form-item
         v-for="(item,key,index) in currentUserInfo || {}"
         :key="index"
         :label=" key === 'address' ? '地址'
@@ -15,13 +15,13 @@
           v-model="currentUserInfo[key]"
           autocomplete="off">
         </el-input>
-    </el-form-item>
-  </el-form>
-  <div slot="footer" class="dialog-footer">
-    <el-button @click="closeEdit">取消</el-button>
-    <el-button type="primary" @click="preservationEdit">确定</el-button>
-  </div>
-</el-dialog>
+      </el-form-item>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click="closeEdit">取消</el-button>
+      <el-button type="primary" @click="preservationEdit">确定</el-button>
+    </div>
+  </el-dialog>
 </template>
 
 <script>
@@ -64,7 +64,10 @@ export default {
     * 保存
     * */
     preservationEdit () {
-      this.$store.commit('DIALOG_FORM_VISIBLE', { editComplete: this.editComplete, edit: true })
+      this.$store.commit('DIALOG_FORM_VISIBLE', {
+        editComplete: this.editComplete,
+        edit: true
+      })
     }
   }
   // watch: {
@@ -78,6 +81,6 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 
 </style>

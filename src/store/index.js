@@ -22,6 +22,7 @@ const mutations = {
     if (value) {
       state.currentUserInfo = value.editComplete
       if (value.edit) {
+        // 点击保存后，讲新编辑的信息 替换到总数据中
         state.tableData = state.tableData.map((item, index) => {
           if (item.id === value.editComplete.id) {
             return value.editComplete
@@ -46,9 +47,7 @@ const actions = {
 }
 
 // 格式化数据
-const getters = {
-
-}
+const getters = {}
 
 export default new Vuex.Store({
   state,

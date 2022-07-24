@@ -1,7 +1,7 @@
 <template>
-   <div>
+  <div>
     <edit v-show="dialogFormVisible"></edit>
-     <el-table
+    <el-table
       :data="_.cloneDeep(tableData || []) "
       style="width: 90%"
       max-height="550"
@@ -70,7 +70,7 @@
         </template>
       </el-table-column>
     </el-table>
-   </div>
+  </div>
 </template>
 
 <script>
@@ -93,21 +93,26 @@ export default {
   },
 
   methods: {
-    // 点击编辑
+    /*
+    * 编辑
+    * */
     handleEdit (value) {
       this.$store.commit('DIALOG_FORM_VISIBLE', { editComplete: value })
     },
 
-    // 气泡确定事件
-    confirmEvent (index, rows) {
-      rows.splice(index, 1)
-    },
-
-    // 气泡取消事件
+    /*
+    * 取消删除
+    * */
     cancelEvent () {
       this.$message('已取消删除')
-    }
+    },
 
+    /*
+    * 删除当前信息
+    * */
+    confirmEvent (index, rows) {
+      rows.splice(index, 1)
+    }
   },
 
   async mounted () {
@@ -117,8 +122,8 @@ export default {
 }
 </script>
 <style lang="less">
-.el-popconfirm{
-  background-color:rgba(255, 255, 255);
-  box-shadow:0 2px 10px 0 rgba(51, 70, 84, 0.2);
+.el-popconfirm {
+  background-color: rgba(255, 255, 255);
+  box-shadow: 0 2px 10px 0 rgba(51, 70, 84, 0.2);
 }
 </style>

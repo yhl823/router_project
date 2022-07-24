@@ -92,7 +92,8 @@
           <el-menu-item
             index="3"
             disabled
-          >消息中心</el-menu-item>
+          >消息中心
+          </el-menu-item>
           <el-menu-item
             index="4"
             @click="handleHome"
@@ -146,7 +147,10 @@ export default {
   },
   created () {
     this.routes.forEach((item) => {
-      this.editableTabs.push({ title: item.name, name: item.name })
+      this.editableTabs.push({
+        title: item.name,
+        name: item.name
+      })
     })
 
     // this.setFor()
@@ -187,7 +191,6 @@ export default {
       const arr = route.map((item) => item.name)
       routes.forEach(item => arr.includes(item.name) && temp.push(...item.children))
       return temp
-      // return arr
     }
   },
   methods: {
@@ -258,7 +261,11 @@ export default {
 
     objAssign () {
       // 对象合并assign方法
-      const obj = { a: '1', b: [{ c: 2 }], ppp: '888' }
+      const obj = {
+        a: '1',
+        b: [{ c: 2 }],
+        ppp: '888'
+      }
       const obj2 = { ppp: '999' }
       console.log(Object.assign(obj, obj2))
     },
@@ -283,10 +290,12 @@ body,
 #app {
   height: 100% !important;
 }
+
 // element 布局
 .layout-container {
   height: 100%;
 }
+
 .el-header {
   background-color: #e7eaee;
   color: #333;
@@ -310,19 +319,23 @@ body,
   justify-content: center; /*水平主轴居中*/
   align-items: center; /*垂直交叉轴居中*/
 }
+
 .icon-leftFold,
 .icon-rigthFold {
   position: absolute;
   left: 0;
 }
+
 // element 左侧菜单
 .el-menu {
   border-right: none;
 }
+
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
 }
+
 .iconStyle {
   display: inline-block;
   margin-right: 5px;
@@ -330,6 +343,7 @@ body,
   text-align: center;
   font-size: 18px;
 }
+
 .logo-container {
   display: flex; /*父元素设置flex属性*/
   justify-content: center; /*水平主轴居中*/
@@ -337,12 +351,15 @@ body,
   margin: 20px 0;
   height: 45px;
   width: 200px;
+
   h1 {
     color: #fff;
     padding-left: 10px;
   }
+
   span {
     height: 100%;
+
     img {
       height: 100%;
     }
@@ -357,6 +374,7 @@ body,
   //   /*左边阴影  绿色*/ 1px 0px 0px 0px #333,
   //   /*右边阴影  蓝色*/ 0px 1px 0px 0px #333; /*下边阴影  黄色*/
 }
+
 .el-tabs__header {
   margin: 0;
 }
