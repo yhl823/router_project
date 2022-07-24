@@ -10,7 +10,11 @@
         : key === 'name' ? '姓名'
         : key === 'province' ? '省份':'ID'"
         :label-width="formLabelWidth">
-        <el-input readonly  v-model="currentUserInfo[key]"  autocomplete="off"></el-input>
+        <el-input
+          :readonly="key === 'id'"
+          v-model="currentUserInfo[key]"
+          autocomplete="off">
+        </el-input>
     </el-form-item>
   </el-form>
   <div slot="footer" class="dialog-footer">
