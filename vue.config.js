@@ -10,5 +10,8 @@ module.exports = {
       })
     }
   },
-  lintOnSave: false // 关闭语法检查
+  lintOnSave: false, // 关闭语法检查
+  chainWebpack: (config) => {
+    config.resolve.symlinks(true) // 修复热更新失效
+  }
 }

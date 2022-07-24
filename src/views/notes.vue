@@ -6,32 +6,25 @@
 </template>
 
 <script>
+const arr1 = [{ name: 'Develop' }, { name: 'Test' }, { name: 'Product' }]
 export default {
   name: 'notes',
   data () {
-    return {
-
-    }
+    return {}
   },
   methods: {
-    arrMap () {
-      const arr = [{ name: 'Develop' }, { name: 'Test' }, { name: 'Product' }]
-      const arr2 = arr.map((item, index, arr) => {
-        if (index === 0) {
-          arr[index] = '111'
-        } else if (index === 1) {
-          arr[index] = '222'
-        } else {
-          arr[index] = '333'
+    arrMap (arr, oldValue, newValue) {
+      return arr.map((item) => {
+        if (item.name === oldValue) {
+          return { name: newValue }
         }
         return item
       })
-      console.log(arr, 'arr')
-      console.log(arr2, 'arr2')
     }
   },
   mounted () {
-    this.arrMap()
+    // console.log(this.arrMap(arr1, 'Develop', 'Dev'))
+    // console.log(arr1)
   }
 }
 </script>

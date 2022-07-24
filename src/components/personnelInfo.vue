@@ -95,7 +95,7 @@ export default {
   methods: {
     // 点击编辑
     handleEdit (value) {
-      this.$store.commit('DIALOG_FORM_VISIBLE', value)
+      this.$store.commit('DIALOG_FORM_VISIBLE', { editComplete: value })
     },
 
     // 气泡确定事件

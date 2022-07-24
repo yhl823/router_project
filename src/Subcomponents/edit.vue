@@ -10,23 +10,23 @@
         : key === 'name' ? '姓名'
         : key === 'province' ? '省份':'ID'"
         :label-width="formLabelWidth">
-        <el-input  @input.native="handleInputChange" v-model="currentUserInfo[key]"  autocomplete="off"></el-input>
+        <el-input readonly  v-model="currentUserInfo[key]"  autocomplete="off"></el-input>
     </el-form-item>
   </el-form>
   <div slot="footer" class="dialog-footer">
     <el-button @click="closeEdit">取消</el-button>
-    <el-button type="primary" @click="closeEdit">确定</el-button>
+    <el-button type="primary" @click="preservationEdit">确定</el-button>
   </div>
 </el-dialog>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   name: 'edit',
   data () {
     return {
       formLabelWidth: '120px'
+      // editComplete: ''
     }
   },
   computed: {
@@ -42,10 +42,10 @@ export default {
     currentUserInfo: {
       get () {
         return this.$store.state.currentUserInfo
-      },
-      set () {
-
       }
+    },
+    editComplete () {
+      return this.currentUserInfo
     }
     // ...mapState({
     //   currentUserInfo: 'currentUserInfo'
@@ -56,18 +56,21 @@ export default {
     closeEdit () {
       this.$store.commit('DIALOG_FORM_VISIBLE')
     },
-
-    handleInputChange (e) {
-
-    }
-  },
-  watch: {
-    currentUserInfo (newValue) {
-      if (newValue) {
-        console.log(newValue, '正在编辑')
-      }
+    /*
+    * 保存
+    * */
+    preservationEdit () {
+      this.$store.commit('DIALOG_FORM_VISIBLE', { editComplete: this.editComplete, edit: true })
     }
   }
+  // watch: {
+  //   currentUserInfo: {
+  //     deep: true,
+  //     handler (newValue) {
+  //       this.editComplete = newValue
+  //     }
+  //   }
+  // }
 }
 </script>
 

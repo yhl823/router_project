@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getUser } from '../api/personnelInfo'
+import { getUser } from '@/api/personnelInfo'
 
 Vue.use(Vuex)
 
@@ -16,11 +16,20 @@ const state = {
 
 // 同步修改state中数据
 const mutations = {
+  // 修改当前点击的人员信息
   DIALOG_FORM_VISIBLE (state, value) {
     state.dialogFormVisible = !state.dialogFormVisible
     if (value) {
-      console.log('?????')
-      state.currentUserInfo = value
+      state.currentUserInfo = value.editComplete
+      if (value.edit) {
+        state.tableData = state.tableData.map((item, index) => {
+          if (item.id === value.editComplete.id) {
+            return value.editComplete
+          } else {
+            return item
+          }
+        })
+      }
     }
   }
 }

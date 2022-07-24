@@ -145,7 +145,7 @@ export default {
     })
   },
   created () {
-    this.routes.forEach(item => {
+    this.routes.forEach((item) => {
       this.editableTabs.push({ title: item.name, name: item.name })
     })
 
@@ -169,16 +169,25 @@ export default {
     // 获取当前路由的子路由
     routes () {
       const routes = this.$router.options.routes
+      console.log(routes)
       const route = this.$route.matched
-      const arr = []
-      routes.forEach(item => {
-        route.forEach(item2 => {
-          if (item.name === item2.name) {
-            arr.push(...item.children)
-          }
-        })
-      })
-      return arr
+      // console.log(route)
+      // const arr = []
+      // routes.forEach(item => {
+      //   route.forEach(item2 => {
+      //     if (item.name === item2.name) {
+      //       arr.push(...item.children)
+      //     }
+      //   })
+      // })
+      // console.log(arr)
+
+      // important
+      const temp = []
+      const arr = route.map((item) => item.name)
+      routes.forEach(item => arr.includes(item.name) && temp.push(...item.children))
+      return temp
+      // return arr
     }
   },
   methods: {
